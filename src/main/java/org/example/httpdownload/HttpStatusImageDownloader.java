@@ -1,4 +1,6 @@
-package org.example;
+package org.example.httpdownload;
+
+import org.example.httpcheck.HttpStatusChecker;
 
 import java.io.InputStream;
 import java.net.URL;
