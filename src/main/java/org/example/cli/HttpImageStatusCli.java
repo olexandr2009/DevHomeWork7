@@ -6,7 +6,6 @@ import org.example.httpdownload.HttpStatusImageDownloader;
 import java.util.Scanner;
 
 public class HttpImageStatusCli {
-    HttpStatusChecker statusChecker = new HttpStatusChecker();
     HttpStatusImageDownloader imageDownloader = new HttpStatusImageDownloader();
     private static final Scanner SCANNER = new Scanner(System.in);
     public void askStatus(){
