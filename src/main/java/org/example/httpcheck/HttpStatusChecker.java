@@ -9,13 +9,13 @@ import java.nio.charset.StandardCharsets;
 
 public class HttpStatusChecker {
 
-    public static final String GET_URL = "https://http.cat/<CODE>.jpg";
+    private static final String GET_URL = "https://http.cat/%s.jpg";
     private static final Integer NOT_FOUND_SC = 404;
 
     public String getStatusImage(int number) throws Exception {
         String uri = formatCode(number);
 
-        HttpRequest httpRequest = null;
+        HttpRequest httpRequest;
         try {
             httpRequest = HttpRequest.newBuilder()
                     .GET()
@@ -28,12 +28,12 @@ public class HttpStatusChecker {
                 httpRequest,
                 HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
 
-       if (httpResponse.statusCode() == NOT_FOUND_SC){
-           throw new HttpIncorectStatusCodeEx();
-       }
-       return uri;
+        if (httpResponse.statusCode() == NOT_FOUND_SC){
+            throw new HttpIncorectStatusCodeEx();
+        }
+        return uri;
     }
     public String formatCode(int code){
-        return GET_URL.replace("<CODE>", String.valueOf(code));
+        return String.format(GET_URL,code);
     }
 }

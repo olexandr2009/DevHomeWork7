@@ -1,6 +1,5 @@
 package org.example.cli;
 
-import org.example.httpcheck.HttpStatusChecker;
 import org.example.httpdownload.HttpStatusImageDownloader;
 
 import java.util.Scanner;
